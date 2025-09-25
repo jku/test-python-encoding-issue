@@ -16,7 +16,6 @@ jobs:
           python -c "f = open('testfile', 'w'); f.write('—')"
           sha256sum testfile
       - run: |
-          echo "LC_CTYPE=C.utf8"
-          LC_CTYPE=C.utf8 python -c "import locale; print('platform preferred encoding is', locale.getpreferredencoding())"
-          LC_CTYPE=C.utf8 python -c "f = open('testfile', 'w'); f.write('—')"
+          echo "now with explicit UTF-8 encoding"
+          python -c "f = open('testfile', 'w', encoding='utf-8'); f.write('—')"
           sha256sum testfile
