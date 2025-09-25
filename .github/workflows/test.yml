@@ -15,3 +15,7 @@ jobs:
           python -c "import locale; print('platform preferred encoding is', locale.getpreferredencoding())"
           python -c "f = open('testfile', 'w'); f.write('—')"
           sha256sum testfile
+      - run: |
+          python -X utf-8 -c "import locale; print('platform preferred encoding is', locale.getpreferredencoding())"
+          python -X utf-8 -c "f = open('testfile', 'w'); f.write('—')"
+          sha256sum testfile
