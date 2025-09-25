@@ -12,4 +12,6 @@ jobs:
     
     steps:
       - run: |
-          python -c "import locale; print(locale.getpreferredencoding())"
+          python -c "import locale; print("platform preferred encoding is", locale.getpreferredencoding())"
+          python -c "open('testfile', 'w') as f; f.write('—')"
+          sha256sum testfile
